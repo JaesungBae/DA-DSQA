@@ -1,15 +1,15 @@
 # Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech
 
-[Code still in Progress]
+In this repo, you can find a *Robust* **Dysarthric Speech Qaulity Assessment (DASQ)** model, which is trained with data augmenation (DA) methods. The model is trained with SAP dataset. However, large portion of SAP dataset (more than 90\%) is unlabeled. Our motivation is to utilize this unlabeled part of SAP dataset. Furthermore, we propose a way to use the large-scale typical speech dataset (LibriSpeech) to further enhance the robustness.
 
-This repository contains the code for the paper:
+For further details, please refer to our paper:
+> **Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech** [[Paper link]](https://arxiv.org/abs/2603.15988). 
 
-> **Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech**
-> [[Paper]](https://arxiv.org/abs/2603.15988)
+<p align="center">
+  <img src="images/model_v5_cut.pdf" alt="DASQ Model Teaser" width="640"/>
+</p>
 
-## Overview
 
-Speech severity level classification using Whisper encoder features with VAD preprocessing.
 
 ## Setup
 
@@ -352,4 +352,22 @@ python probe-whisper.py \
     --data_dir ./dataset_easycall_labeled \
     --target_type average \
     --proj_dim 320
+```
+
+# Contacts
+- Jaesung Bae (jb82@illinois.edu)
+- Xiuwen Zheng (xiuwenz2@illinois.edu)
+
+# Cite
+If you use this code, please cite our paper with following bibtex.
+```
+@misc{bae2026something,
+  title         = {Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech},
+  author        = {Jaesung Bae and Xiuwen Zheng and Minje Kim and Chang D. Yoo and Mark Hasegawa-Johnson},
+  year          = {2026},
+  eprint        = {2603.15988},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.AS},
+  url           = {https://arxiv.org/abs/2603.15988}
+}
 ```
