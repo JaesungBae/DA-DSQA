@@ -1,0 +1,23 @@
+{
+    "exp_name": "proposed_L_coarse_tau100.0",
+    "epochs": 2,
+    "batch_size": 64,
+    "lr": 1e-3,
+    "hidden_dim": 320,
+    "tau": 100.0,
+    "w_contrast": 0.0,
+    "w_supcon": 1.0,
+    "w_label_supcon": 0.0,
+    "w_continuous_supcon": 0.0,
+    "w_rnc": 0.0,
+    "w_var": 0.1,
+    "w_anchor": 0.0,
+    "w_margin": 0.0,
+    "w_mixup": 0.0,
+    "margin": 0.0,
+    "label12_as_typical": true,
+    "label12_target": "Average",
+    "label_typical_threshold": 1.5,
+    "sampler_type": "binary",
+    "eval_every": 1
+}

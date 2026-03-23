@@ -1,0 +1,37 @@
+# Datasets and audio
+/dataset_*
+/sample_features/
+/sample_wavs/
+
+# Extracted features
+/features/
+
+# Training outputs
+/experiments/
+/delta_logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated outputs
+*.png
+*.pdf
+/anal/draw_*/output/
+
+# IDE / tool caches
+/.claude/
+/.CLAUDE
+/CLAUDE.md
+
+/sample_wavs
+/test_inference.py
+/anal
+/data_prepare
+/test_inference.sh
+/dataset_*
+/features/
+LibriSpeech/
+EasyCall/
+*.tra.gz

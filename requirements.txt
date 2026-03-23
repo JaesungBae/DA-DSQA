@@ -1,0 +1,24 @@
+# Install PyTorch separately first (via conda):
+#   conda install pytorch torchaudio -c pytorch -y
+
+# HuggingFace
+transformers>=4.40.0
+safetensors>=0.4.0
+
+# Numerics / stats
+numpy>=1.26.0
+scipy>=1.13.0
+scikit-learn>=1.4.0
+
+# Visualization / analysis
+matplotlib>=3.8.0
+pandas>=2.1.0
+
+# Audio I/O
+soundfile>=0.12.0
+
+# Utilities
+tqdm>=4.66.0
+
+# Optional: experiment tracking (--wandb flag in probe-whisper.py, pretrain_contrastive.py)
+# wandb
