@@ -17,7 +17,7 @@ __pycache__/
 
 # Generated outputs
 *.png
-*.pdf
+# *.pdf
 /anal/draw_*/output/
 
 # IDE / tool caches
