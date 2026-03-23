@@ -137,7 +137,8 @@ Required keys:
 | EWA-DB | `moca` | float (MoCA score) |
 | NeuroVoz | `hy_stadium` | float (Hoehn-Yahr stage, HC fallback: 0.0) |
 
-From here, we exemplify the training process with open datasets, EasyCall and LibriSpeech dev-other. You can replicate this process with the SAP dataset and the full LibriSpeech train datasets.
+> [!IMPORTANT]
+> From here, we exemplify the training process with open datasets, EasyCall and LibriSpeech dev-other. You can replicate this process with the SAP dataset and the full LibriSpeech train datasets.
 
 Download the dataset:
 ```bash
