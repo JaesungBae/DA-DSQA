@@ -1,6 +1,6 @@
 # Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech
 
-In this repo, you can find a *Robust* **Dysarthric Speech Quality Assessment (DSQA)** model, which is trained with data augmentation (DA) methods. The model is trained with the SAP dataset. However, a large portion of the SAP dataset (more than 90\%) is unlabeled. Our motivation is to utilize this unlabeled part of the SAP dataset. Furthermore, we propose a way to use the large-scale typical speech dataset (LibriSpeech) to further enhance the robustness.
+In this repo, you can find a *Robust* **Dysarthric Speech Quality Assessment (DSQA)** model, which is trained with data augmentation (DA) methods. The model is trained with the SAP dataset. However, a large portion of the SAP dataset (more than 90\%) is unlabeled. Our motivation is to utilize this unlabeled part of the SAP dataset and enhance the robustness of the DSQA model. Furthermore, we propose a way to use the large-scale typical speech dataset (LibriSpeech).
 
 
 <p align="center">
