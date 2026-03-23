@@ -1,13 +1,15 @@
 # Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech
 
-In this repo, you can find a *Robust* **Dysarthric Speech Qaulity Assessment (DASQ)** model, which is trained with data augmenation (DA) methods. The model is trained with SAP dataset. However, large portion of SAP dataset (more than 90\%) is unlabeled. Our motivation is to utilize this unlabeled part of SAP dataset. Furthermore, we propose a way to use the large-scale typical speech dataset (LibriSpeech) to further enhance the robustness.
+In this repo, you can find a *Robust* **Dysarthric Speech Quality Assessment (DSQA)** model, which is trained with data augmentation (DA) methods. The model is trained with the SAP dataset. However, a large portion of the SAP dataset (more than 90\%) is unlabeled. Our motivation is to utilize this unlabeled part of the SAP dataset. Furthermore, we propose a way to use the large-scale typical speech dataset (LibriSpeech) to further enhance the robustness.
+
+
+<p align="center">
+  <img src="images/model_v5_cut.png" alt="DASQ Model Teaser" width="640"/>
+</p>
+
 
 For further details, please refer to our paper:
 > **Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech** [[Paper link]](https://arxiv.org/abs/2603.15988). 
-
-<p align="center">
-  <img src="images/model_v5_cut.pdf" alt="DASQ Model Teaser" width="640"/>
-</p>
 
 
 
@@ -42,11 +44,11 @@ pip install -r requirements.txt
 
 ### Checkpoints
 
-The repository includes two-stage checkpoints under `checkpoints/`:
+The repository includes three-stage checkpoints under `checkpoints/`:
 
-- **`step1/`** — Baseline Checkpoint trained only with SAP labeled dataset
-- **`step2/`** — Contrastive pre-training checkpoints (`checkpoint_epoch_002.pt`)
-- **`step3/`** — Trained probe checkpoints (`model.safetensors`)
+- **`stage1/`** — Baseline checkpoint trained only with the SAP labeled dataset
+- **`stage2/`** — Contrastive pre-training checkpoints (`checkpoint_epoch_002.pt`)
+- **`stage3/`** — Trained probe checkpoints (`model.safetensors`)
 
 | Checkpoint | Contrastive Loss | τ |
 |---|---|---|
@@ -59,7 +61,7 @@ The repository includes two-stage checkpoints under `checkpoints/`:
 
 ### Single file inference (`inference.py`)
 
-Predict severity from a single WAV file. Handles VAD preprocessing and Whisper feature extraction internally. You may want to modify this inference code for the batch-wise inferece.:
+Predict severity from a single WAV file. Handles VAD preprocessing and Whisper feature extraction internally. You may want to modify this inference code for batch-wise inference:
 
 ```bash
 python inference.py \
@@ -135,7 +137,7 @@ Required keys:
 | EWA-DB | `moca` | float (MoCA score) |
 | NeuroVoz | `hy_stadium` | float (Hoehn-Yahr stage, HC fallback: 0.0) |
 
-From here, we will exemplify the case training with open dataset, EasyCall and LibriSpeech dev-other. You can mimic this process with SAP dataset and full LibriSpeech train datasets.
+From here, we exemplify the training process with open datasets, EasyCall and LibriSpeech dev-other. You can replicate this process with the SAP dataset and the full LibriSpeech train datasets.
 
 Download the dataset:
 ```bash
@@ -173,7 +175,7 @@ This creates `dataset_librispeech/dev-other.json` (named after the input directo
 
 Extract Whisper encoder features with VAD preprocessing using `extract_features_with_vad.py`. This applies Silero VAD to strip silence, then saves the last-layer hidden states as `.npy` files (float16).
 
-WARNING: Some files may not generate feature correctly. You may want to filter them out from the metadata files.
+WARNING: Some files may not generate features correctly. You may want to filter them out from the metadata files.
 
 The extracted `.npy` files mirror the same directory structure as the source wav files within each split directory.
 
@@ -316,6 +318,7 @@ python pretrain_contrastive.py \
 ```
 
 CLI arguments override config values. The best checkpoint is selected by training loss and saved as `pretrained_prenet.pt` under the experiment output directory. No dev set is used for model selection; the `--eval_split` and `--eval_typical_splits` options control optional t-SNE visualization of the learned representations during training.
+
 ### 5. Stage 3: Fine-tuning
 
 Fine-tune the probe with the pre-trained projector from Stage 2:
@@ -359,7 +362,7 @@ python probe-whisper.py \
 - Xiuwen Zheng (xiuwenz2@illinois.edu)
 
 # Cite
-If you use this code, please cite our paper with following bibtex.
+If you use this code, please cite our paper with the following BibTeX. Thank you!
 ```
 @misc{bae2026something,
   title         = {Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech},
