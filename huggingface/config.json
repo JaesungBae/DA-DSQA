@@ -1,0 +1,22 @@
+{
+  "model_type": "whisper_severity_probe",
+  "architectures": ["WhisperFeatureProbeV2"],
+  "input_dim": 1280,
+  "proj_dim": 320,
+  "dropout": 0.1,
+  "num_classes": 1,
+  "whisper_model_name": "openai/whisper-large-v3",
+  "sampling_rate": 16000,
+  "default_checkpoint": "proposed_L_coarse_tau100.0",
+  "available_checkpoints": [
+    "proposed_L_coarse_tau0.1",
+    "proposed_L_coarse_tau1.0",
+    "proposed_L_coarse_tau10.0",
+    "proposed_L_coarse_tau50.0",
+    "proposed_L_coarse_tau100.0",
+    "proposed_L_cont_tau0.1",
+    "proposed_L_dis_tau1.0",
+    "rank-n-contrast_tau100.0",
+    "simclr_tau0.1"
+  ]
+}

@@ -9,9 +9,9 @@ In this repo, you can find a *Robust* **Dysarthric Speech Quality Assessment (DS
 
 
 For further details, please refer to our paper:
-> **Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech** [[Paper link]](https://arxiv.org/abs/2603.15988). 
+> **Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech** [[Paper link]](https://arxiv.org/abs/2603.15988).
 
-
+**HuggingFace:** [jaesungbae/da-dsqa](https://huggingface.co/jaesungbae/da-dsqa)
 
 ## Setup
 
@@ -67,6 +67,36 @@ Predict severity from a single WAV file. Handles VAD preprocessing and Whisper f
 python inference.py \
     --wav /path/to/audio.wav \
     --checkpoint ./checkpoints/stage3/proposed_L_coarse_tau10.0/average
+```
+
+### HuggingFace inference
+
+You can also run inference directly from our [HuggingFace model](https://huggingface.co/jaesungbae/da-dsqa):
+
+```python
+from huggingface_hub import snapshot_download
+model_dir = snapshot_download("jaesungbae/da-dsqa")
+
+from pipeline import PreTrainedPipeline
+pipe = PreTrainedPipeline(model_dir)
+
+# Single file
+result = pipe("/path/to/audio.wav")
+print(result)
+# {"severity_score": 4.25, "raw_score": 4.2483, "model_name": "proposed_L_coarse_tau100.0"}
+
+# Batch inference
+results = pipe.batch_inference([
+    "/path/to/audio1.wav",
+    "/path/to/audio2.wav",
+    "/path/to/audio3.wav",
+])
+for r in results:
+    print(f"{r['file']}: {r['severity_score']}")
+
+# Switch checkpoint
+pipe.switch_model("simclr_tau0.1")
+result = pipe("/path/to/audio.wav")
 ```
 
 ## Train

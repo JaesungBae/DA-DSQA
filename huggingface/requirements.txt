@@ -1,0 +1,8 @@
+# Install PyTorch separately first (via conda or pip):
+#   conda install pytorch torchaudio -c pytorch -y
+# See https://pytorch.org/get-started/locally/ for GPU builds.
+
+transformers>=4.40.0
+safetensors>=0.4.0
+huggingface_hub>=0.20.0
+soundfile>=0.12.0
