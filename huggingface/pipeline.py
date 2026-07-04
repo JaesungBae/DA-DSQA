@@ -3,7 +3,7 @@ Custom inference pipeline for HuggingFace Hub.
 
 Pipeline: WAV -> Silero VAD -> Whisper feature extraction -> Probe -> Severity score
 
-Score scale: 1.0 (most severe) to 7.0 (typical speech)
+Score scale: 1.0 (typical / least severe) to 7.0 (most severe dysarthria)
 
 Supports multiple checkpoints. Pass `model_name` to select which checkpoint to use:
 
@@ -185,7 +185,7 @@ class PreTrainedPipeline:
     HuggingFace custom inference pipeline for dysarthric speech severity estimation.
 
     Accepts a WAV file path or raw audio bytes and returns a severity score
-    on a 1.0 (most severe) to 7.0 (typical speech) scale.
+    on a 1.0 (typical / least severe) to 7.0 (most severe dysarthria) scale.
 
     Supports multiple checkpoints stored under `checkpoints/` in the model repo.
     Use `model_name` to select which checkpoint, or call `switch_model()` to

@@ -1386,7 +1386,7 @@ def train(args):
         # appear in a batch, making the within-group positive gradient near-zero.
         #
         # Group assignment:
-        #   - True typical speech (LibriSpeech): rating_value = typical_supcon_group (0.0)
+        #   - True typical speech (LibriSpeech): rating_value = typical_supcon_group + 1.0
         #   - Atypical with valid rating: rating_to_group(rating_value)
         #   - NaN rating_value (unlabeled): treated as group 0 (same as typical)
         all_ratings = []

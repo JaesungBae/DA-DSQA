@@ -15,7 +15,7 @@ pipeline_tag: audio-classification
 
 A regression probe trained on top of Whisper-large-v3 encoder features for estimating the severity level of dysarthric speech.
 
-**Score scale:** 1.0 (most severe dysarthria) to 7.0 (typical speech)
+**Score scale:** 1.0 (typical / least severe) to 7.0 (most severe dysarthria)
 
 **GitHub:** [JaesungBae/DA-DSQA](https://github.com/JaesungBae/DA-DSQA)
 

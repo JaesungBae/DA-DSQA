@@ -139,8 +139,8 @@ Each dataset requires a JSON metadata file per split (`train.json`, `dev.json`, 
 ```
 
 Required keys:
-- `ratings.Intelligibility` — float, 1.0 (most severe) to 7.0 (typical)
-- `ratings.Naturalness` — float, 1.0 to 7.0
+- `ratings.Intelligibility` — float, 1.0 (typical / least severe) to 7.0 (most severe)
+- `ratings.Naturalness` — float, 1.0 (typical / least severe) to 7.0 (most severe)
 - `ratings.Average` — float, mean of Intelligibility and Naturalness (used as default target)
 
 **Typical speech dataset (LibriSpeech)** — used by `pretrain_contrastive.py` for contrastive pre-training. All ratings are set to 1.0 (most typical):
@@ -394,7 +394,7 @@ python probe-whisper.py \
 
 # Cite
 If you use this code, please cite our paper with the following BibTeX. Thank you!
-```
+```bibtex
 @misc{bae2026something,
   title         = {Something from Nothing: Data Augmentation for Robust Severity Level Estimation of Dysarthric Speech},
   author        = {Jaesung Bae and Xiuwen Zheng and Minje Kim and Chang D. Yoo and Mark Hasegawa-Johnson},
