@@ -4,6 +4,7 @@
     "batch_size": 64,
     "lr": 1e-3,
     "hidden_dim": 320,
+    "model_version": "v2",
     "tau": 0.1,
     "w_contrast": 0.0,
     "w_supcon": 1.0,

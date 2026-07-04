@@ -340,6 +340,7 @@ Pre-train the feature projector with contrastive losses. Config files for each m
 ```bash
 python pretrain_contrastive.py \
     --config ./configs/stage2/proposed_L_coarse_tau10.0.json \
+    --model_version v2 \
     --atypical_feature_dir ./features/easycall/whisper_large_v3_vad \
     --atypical_data_dir ./dataset_easycall_total \
     --typical_feature_dir ./features/librispeech/whisper_large_v3_vad \

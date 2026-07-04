@@ -1897,7 +1897,7 @@ def main():
                              "(1/group_count per sample, ensures equal group representation per batch).")
 
     # Model
-    parser.add_argument("--model_version", type=str, default="v1",
+    parser.add_argument("--model_version", type=str, default="v2",
                         choices=["v1", "v2"],
                         help="v1: single pre_net + mean pooling, "
                              "v2: two pre_net layers + statistics pooling (mean+std)")
